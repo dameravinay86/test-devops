@@ -1,0 +1,14 @@
+---
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: Installing HTTPD
+      action: yum name=httpd state=present
+    
+    - name: Restarting HTTPD
+      service: name=httpd state=restarted
+        
+...
